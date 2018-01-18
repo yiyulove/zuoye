@@ -8,7 +8,7 @@ function Diji(){
 		case 2:suiji="img/plane2.png";break;
 		case 3:suiji="img/plane3.png";break;
 	}
-	this.eles=$("<img src='"+suiji+"' />");
+	this.eles=$("<div style='background:url("+suiji+") no-repeat'></div>");
 	this.eles.addClass("diji")
 	this.eles.css({top:-50,left:Math.random()*parseInt($("body").css("width"))})
 	this.eles.appendTo("body");
@@ -28,16 +28,31 @@ Diji.prototype.move=function(){
 Diji.prototype.panduan=function(){
 	var diji=$(".diji");
 	var zidan=$(".point");
+	
 	console.log(diji.length);console.log(zidan.length);
 	for(var k=0;k<diji.length;k++)
 	{
 	for(var j=0;j<zidan.length;j++)
 	{
-		if($(".point:eq("+j+")").css("top")==$("diji:eq("+k+")").css("top")&&($("diji:eq("+k+")").css("left")-$(".point:eq("+j+")").css("left")>-40||$("diji:eq("+k+")").css("left")-$(".point:eq("+j+")").css("left")<40))
+		if(parseInt($(".point:eq("+j+")").css("top"))-parseInt($(".diji:eq("+k+")").css("top"))<10)
 		{
-			console.log("aaa");
-		    $("diji:eq("+k+")").remove();
+			if(parseInt($(".diji:eq("+k+")").css("left"))-parseInt($(".point:eq("+j+")").css("left"))>-40&&parseInt($(".diji:eq("+k+")").css("left"))-parseInt($(".point:eq("+j+")").css("left"))<40)
+			{console.log("aaa");
+			  
+		     
+		      $(".diji:eq("+k+")").css({"background":"img/plain1_die2.png"});
+		       $(".diji:eq("+k+")").remove();
+		      $("#panbian").text(parseInt($("#panbian").html())+10);
+		   }
 		}
+		
+		if(parseInt($(".point:eq("+j+")").css("top"))-parseInt($("#box2").css("top"))<5)
+		{
+			if(parseInt($(".point:eq("+j+")").css("left"))-parseInt($("#box2").css("left"))<-10&&parseInt($(".point:eq("+j+")").css("left"))-parseInt($("#box2").css("left"))>40)
+			{
+	          	alert("游戏结束");
+	        }
+	     }
 	}
 	}
 }

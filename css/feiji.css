@@ -27,4 +27,13 @@
 	width: 70px;
 	height: 92px;
 	position: absolute;
+	background-size: 100% 100%;
+}
+#panbian{
+	width: 100px;
+	height: 30px;
+	background:yellow;
+	position: fixed;
+	top: 0;
+	right: 0;
 }
