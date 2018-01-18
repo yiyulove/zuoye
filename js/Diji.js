@@ -29,30 +29,46 @@ Diji.prototype.panduan=function(){
 	var diji=$(".diji");
 	var zidan=$(".point");
 	
-	console.log(diji.length);console.log(zidan.length);
-	for(var k=0;k<diji.length;k++)
-	{
-	for(var j=0;j<zidan.length;j++)
-	{
-		if(parseInt($(".point:eq("+j+")").css("top"))-parseInt($(".diji:eq("+k+")").css("top"))<10)
+	
+	var timer=setInterval(function(){
+			for(var k=0;k<diji.length;k++)
 		{
-			if(parseInt($(".diji:eq("+k+")").css("left"))-parseInt($(".point:eq("+j+")").css("left"))>-40&&parseInt($(".diji:eq("+k+")").css("left"))-parseInt($(".point:eq("+j+")").css("left"))<40)
-			{console.log("aaa");
-			  
-		     
-		      $(".diji:eq("+k+")").css({"background":"img/plain1_die2.png"});
-		       $(".diji:eq("+k+")").remove();
-		      $("#panbian").text(parseInt($("#panbian").html())+10);
-		   }
-		}
-		
-		if(parseInt($(".point:eq("+j+")").css("top"))-parseInt($("#box2").css("top"))<5)
-		{
-			if(parseInt($(".point:eq("+j+")").css("left"))-parseInt($("#box2").css("left"))<-10&&parseInt($(".point:eq("+j+")").css("left"))-parseInt($("#box2").css("left"))>40)
+			for(var j=0;j<zidan.length;j++)
 			{
-	          	alert("游戏结束");
-	        }
-	     }
-	}
-	}
+				
+				if(isTouch($(".point:eq("+j+")"),$(".diji:eq("+k+")")))
+				{
+					 $(".diji:eq("+k+")").css({"background":"img/plain1_die2.png"});
+					 $(".diji:eq("+k+")").remove();
+					 $("#panbian").text(parseInt($("#panbian").html())+10);
+				}
+				if(isTouch($("#box2"),$(".diji:eq("+k+")")))
+				{
+					 alert("游戏结束");
+				}
+				
+			}
+		}
+	
+	},30)
 }
+//		if(parseInt($(".point:eq("+j+")").css("top"))-parseInt($(".diji:eq("+k+")").css("top"))<10)
+//		{
+//			if(parseInt($(".diji:eq("+k+")").css("left"))-parseInt($(".point:eq("+j+")").css("left"))>-40&&parseInt($(".diji:eq("+k+")").css("left"))-parseInt($(".point:eq("+j+")").css("left"))<40)
+//			{console.log("aaa");
+//			  
+//		     
+//		      $(".diji:eq("+k+")").css({"background":"img/plain1_die2.png"});
+//		       $(".diji:eq("+k+")").remove();
+//		      $("#panbian").text(parseInt($("#panbian").html())+10);
+//		   }
+//		}
+//		
+//		if(parseInt($(".point:eq("+j+")").css("top"))-parseInt($("#box2").css("top"))<5)
+//		{
+//			if(parseInt($(".point:eq("+j+")").css("left"))-parseInt($("#box2").css("left"))<-10&&parseInt($(".point:eq("+j+")").css("left"))-parseInt($("#box2").css("left"))>40)
+//			{
+//	          	alert("游戏结束");
+//	        }
+//	     }
+//	}

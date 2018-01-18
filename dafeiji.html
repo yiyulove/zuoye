@@ -17,6 +17,11 @@
 <script src="js/movefly.js"></script>
 <script src="js/bask.js"></script>
 <script src="js/Diji.js"></script>
+<script src="js/common.js"></script>
+<script src="js/daxingfeiji.js"></script>
+<script src="js/zhongfeiji.js"></script>
+<script src="js/xiaoxingfeiji.js"></script>
+
 <script>
 	gameEngine.start();
    new Movefly();
@@ -26,7 +31,14 @@
    	new Bask();
    },100)
      setInterval(function(){
-    	
-   	new Diji();
+    	new Diji();
+// 	var ran=parseInt(Math.random()*3+1);
+// 	
+// 	switch(ran)
+// 	{
+// 		case 1:new Smartfly();break;
+// 		case 2:new MiddleFly();break;
+// 		case 3:new Daxingfeiji();break;
+// 	}
    },3000)
 </script>
