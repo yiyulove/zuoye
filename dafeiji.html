@@ -7,11 +7,25 @@
 	</head>
 	<body>
 		<div id="box"></div>
+		<div id="box2"></div>
 	</body>
 </html>
 
 <script src="js/jquery-1.11.1.js"></script>
-<script src="js/feiji.js"></script>
+<script src="js/background.js"></script>
+<script src="js/movefly.js"></script>
+<script src="js/bask.js"></script>
+<script src="js/Diji.js"></script>
 <script>
-	grambg.start();
+	gameEngine.start();
+   new Movefly();
+  
+    setInterval(function(){
+    	
+   	new Bask();
+   },100)
+     setInterval(function(){
+    	
+   	new Diji();
+   },1000)
 </script>
